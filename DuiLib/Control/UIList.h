@@ -425,6 +425,9 @@ class DUILIB_API CListContainerElementUI : public CContainerUI, public IListItem
 public:
     CListContainerElementUI();
 
+    virtual bool Add(CControlUI* pControl) override;
+    virtual bool AddAt(CControlUI* pControl, int iIndex) override;
+
     LPCTSTR GetClass() const;
     UINT GetControlFlags() const;
     LPVOID GetInterface(LPCTSTR pstrName);
@@ -449,6 +452,7 @@ public:
     void Invalidate(); // 直接CControl::Invalidate会导致滚动条刷新，重写减少刷新区域
     bool Activate();
 
+    void SetPos(RECT rc, bool bNeedInvalidate /* = true */);
     void DoEvent(TEventUI& event);
     void SetAttribute(LPCTSTR pstrName, LPCTSTR pstrValue);
     bool DoPaint(HDC hDC, const RECT& rcPaint, CControlUI* pStopControl);

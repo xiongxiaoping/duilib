@@ -1,42 +1,29 @@
-#ifndef __UIDATETIME_H__
-#define __UIDATETIME_H__
-
 #pragma once
 
-namespace DuiLib
+namespace DuiLib {
+
+class DUILIB_API CDateTimeUI :
+    public CWin32WndUI
 {
-	class CDateTimeWnd;
+public:
+    CDateTimeUI(void);
+    ~CDateTimeUI(void);
 
-	/// 时间选择控件
-	class DUILIB_API CDateTimeUI : public CLabelUI
-	{
-		friend class CDateTimeWnd;
-	public:
-		CDateTimeUI();
-		LPCTSTR GetClass() const;
-		LPVOID GetInterface(LPCTSTR pstrName);
-		UINT GetControlFlags() const;
-		HWND GetNativeWindow() const;
+    virtual void Init() override;
 
-		SYSTEMTIME& GetTime();
-		void SetTime(SYSTEMTIME* pst);
+    virtual void SetAttribute(LPCTSTR pstrName, LPCTSTR pstrValue) override;
 
-		void SetReadOnly(bool bReadOnly);
-		bool IsReadOnly() const;
+    void SetSystemTime(const SYSTEMTIME &st);
+    SYSTEMTIME GetSystemTime(void);
+    void SetDateTime(const CDuiString &datetime);
+    CDuiString GetDateTime(void);
+    void SetDate(const CDuiString &date);
+    CDuiString GetDate(void);
+    void SetTime(const CDuiString &time);
+    CDuiString GetTime(void);
 
-		void UpdateText();
+private:
+    DWORD m_Style;
+};
 
-        void SetPos(RECT rc, bool bNeedInvalidate = true);
-        void Move(SIZE szOffset, bool bNeedInvalidate = true);
-
-		void DoEvent(TEventUI& event);
-
-	protected:
-		SYSTEMTIME m_sysTime;
-		int        m_nDTUpdateFlag;
-		bool       m_bReadOnly;
-
-		CDateTimeWnd* m_pWindow;
-	};
 }
-#endif // __UIDATETIME_H__

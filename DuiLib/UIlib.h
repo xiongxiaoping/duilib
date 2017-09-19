@@ -88,6 +88,7 @@
 #include "Layout/UIChildLayout.h"
 
 #include "Control/UIList.h"
+#include "Control/UIGrid.h"
 #include "Control/UICombo.h"
 #include "Control/UIScrollBar.h"
 #include "Control/UITreeView.h"
@@ -104,6 +105,7 @@
 #include "Control/UISlider.h"
 
 #include "Control/UIRichEdit.h"
+#include "Control/UIWin32Wnd.h"
 #include "Control/UIDateTime.h"
 
 #include "Control/UIActiveX.h"

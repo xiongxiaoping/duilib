@@ -26,11 +26,21 @@ LRESULT WindowImplBase::ResponseDefaultKeyEvent(WPARAM wParam)
 	}
 	else if (wParam == VK_ESCAPE)
 	{
-		Close();
+		Close(IDCANCEL);
 		return TRUE;
 	}
 
 	return FALSE;
+}
+
+void WindowImplBase::OnOK(void)
+{
+    Close(IDOK);
+}
+
+void WindowImplBase::OnCancel(void)
+{
+    Close(IDCANCEL);
 }
 
 UINT WindowImplBase::GetClassStyle() const
@@ -60,7 +70,7 @@ CControlUI* WindowImplBase::CreateControl(LPCTSTR pstrClass)
 
 LRESULT WindowImplBase::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM /*lParam*/, bool& /*bHandled*/)
 {
-	if (uMsg == WM_KEYDOWN)
+	if (uMsg == WM_KEYDOWN && !(GetStyle() & WS_CHILD))
 	{
 		switch (wParam)
 		{
@@ -432,9 +442,18 @@ LONG WindowImplBase::GetStyle()
 void WindowImplBase::OnClick(TNotifyUI& msg)
 {
 	CDuiString sCtrlName = msg.pSender->GetName();
-	if( sCtrlName == _T("closebtn") )
+    if (sCtrlName == _T("okbtn"))
+    {
+        OnOK();
+    }
+    else if (sCtrlName == _T("cancelbtn"))
+    {
+        OnCancel();
+        return;
+    }
+    else if( sCtrlName == _T("closebtn") )
 	{
-		Close();
+		Close(IDCANCEL);
 		return; 
 	}
 	else if( sCtrlName == _T("minbtn"))

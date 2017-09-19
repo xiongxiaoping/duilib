@@ -105,9 +105,6 @@
     <ClCompile Include="Control\UICombo.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
-    <ClCompile Include="Control\UIDateTime.cpp">
-      <Filter>Source Files\Control</Filter>
-    </ClCompile>
     <ClCompile Include="Control\UIEdit.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
@@ -148,6 +145,15 @@
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
     <ClCompile Include="Control\UITreeView.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\UIGrid.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\UIWin32Wnd.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\UIDateTime.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
   </ItemGroup>
@@ -230,9 +236,6 @@
     <ClInclude Include="Control\UICombo.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\UIDateTime.h">
-      <Filter>Header Files\Control</Filter>
-    </ClInclude>
     <ClInclude Include="Control\UIEdit.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
@@ -270,6 +273,15 @@
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Control\UITreeView.h">
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\UIGrid.h">
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\UIWin32Wnd.h">
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\UIDateTime.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
   </ItemGroup>

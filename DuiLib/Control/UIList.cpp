@@ -2635,6 +2635,16 @@ m_uButtonState(0)
 {
 }
 
+bool CListContainerElementUI::Add(CControlUI* pControl)
+{
+    return CContainerUI::Add(pControl);
+}
+
+bool CListContainerElementUI::AddAt(CControlUI* pControl, int iIndex)
+{
+    return CContainerUI::AddAt(pControl, iIndex);
+}
+
 LPCTSTR CListContainerElementUI::GetClass() const
 {
     return DUI_CTR_LISTCONTAINERELEMENT;
@@ -2801,6 +2811,30 @@ bool CListContainerElementUI::Expand(bool bExpand)
     }
 
     return true;
+}
+
+void CListContainerElementUI::SetPos(RECT rc, bool bNeedInvalidate /* = true */)
+{
+    CContainerUI::SetPos(rc, bNeedInvalidate);
+    if (m_pOwner == NULL) return;
+
+    CListHeaderUI *pHeader = static_cast<CListUI*>(m_pOwner)->GetHeader();
+    if (pHeader == NULL) return;
+
+    TListInfoUI *pInfo = m_pOwner->GetListInfo();
+    for (int i=0; i<m_items.GetSize(); ++i)
+    {
+        CControlUI *pItem = static_cast<CControlUI*>(m_items[i]);
+        CListHeaderItemUI *pHeaderItem = static_cast<CListHeaderItemUI*>(pHeader->GetItemAt(i));
+        if (pItem && pHeaderItem)
+        {
+            RECT rcHeaderItem = pHeaderItem->GetPos();
+            RECT rcItem = pItem->GetPos();
+            rcItem.left = rcHeaderItem.left;
+            rcItem.right = rcHeaderItem.right;
+            pItem->SetPos(rcItem);
+        }
+    }
 }
 
 void CListContainerElementUI::DoEvent(TEventUI& event)

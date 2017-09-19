@@ -34,6 +34,8 @@ namespace DuiLib
 		virtual CDuiString GetSkinFile() = 0;
 		virtual LPCTSTR GetWindowClassName(void) const = 0 ;
 		virtual LRESULT ResponseDefaultKeyEvent(WPARAM wParam);
+        virtual void OnOK(void);
+        virtual void OnCancel(void);
 
 		CPaintManagerUI m_PaintManager;
 		static LPBYTE m_lpResourceZIPBuffer;

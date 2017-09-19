@@ -120,6 +120,7 @@
       <PrecompiledHeaderOutputFile>.\Build\Release/DuiLib.pch</PrecompiledHeaderOutputFile>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -132,6 +133,7 @@
       <BaseAddress>0x11000000</BaseAddress>
       <ImportLibrary>../Lib/DuiLib.lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -152,7 +154,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;UILIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>.\Build\Debug/DuiLib.pch</PrecompiledHeaderOutputFile>
@@ -193,7 +195,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;UILIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>.\Build\Debug_u/DuiLib.pch</PrecompiledHeaderOutputFile>
@@ -238,6 +240,7 @@
       <PrecompiledHeaderOutputFile>.\Build\Release_u/DuiLib.pch</PrecompiledHeaderOutputFile>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -249,6 +252,7 @@
       <BaseAddress>0x11000000</BaseAddress>
       <ImportLibrary>../Lib/DuiLib_u.lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -256,7 +260,10 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Control\UIDateTime.cpp" />
+    <ClCompile Include="Control\UIGrid.cpp" />
     <ClCompile Include="Control\UITreeView.cpp" />
+    <ClCompile Include="Control\UIWin32Wnd.cpp" />
     <ClCompile Include="StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Build\Debug/DuiLib.pch</PrecompiledHeaderOutputFile>
@@ -306,7 +313,6 @@
     <ClCompile Include="Control\UIButton.cpp" />
     <ClCompile Include="Control\UICheckBox.cpp" />
     <ClCompile Include="Control\UICombo.cpp" />
-    <ClCompile Include="Control\UIDateTime.cpp" />
     <ClCompile Include="Control\UIEdit.cpp" />
     <ClCompile Include="Control\UIGifAnim.cpp" />
     <ClCompile Include="Control\UILabel.cpp" />
@@ -320,7 +326,10 @@
     <ClCompile Include="Control\UIWebBrowser.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Control\UIDateTime.h" />
+    <ClInclude Include="Control\UIGrid.h" />
     <ClInclude Include="Control\UITreeView.h" />
+    <ClInclude Include="Control\UIWin32Wnd.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="UIlib.h" />
     <ClInclude Include="Utils\downloadmgr.h" />
@@ -347,7 +356,6 @@
     <ClInclude Include="Control\UIButton.h" />
     <ClInclude Include="Control\UICheckBox.h" />
     <ClInclude Include="Control\UICombo.h" />
-    <ClInclude Include="Control\UIDateTime.h" />
     <ClInclude Include="Control\UIEdit.h" />
     <ClInclude Include="Control\UIGifAnim.h" />
     <ClInclude Include="Control\UILabel.h" />

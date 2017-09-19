@@ -281,14 +281,13 @@ CControlUI* CDialogBuilder::_Parse(CMarkupNode* pRoot, CControlUI* pParent, CPai
 			continue;
 		}
         else {
-#ifdef _DEBUG
 			DUITRACE(_T("Create Control: %s"), pstrClass);
-#endif
             SIZE_T cchLen = _tcslen(pstrClass);
             switch( cchLen ) {
             case 4:
                 if( _tcsicmp(pstrClass, DUI_CTR_EDIT) == 0 )                  pControl = new CEditUI;
                 else if( _tcsicmp(pstrClass, DUI_CTR_LIST) == 0 )             pControl = new CListUI;
+                else if( _tcsicmp(pstrClass, DUI_CTR_GRID) == 0 )             pControl = new CGridUI;
                 else if( _tcsicmp(pstrClass, DUI_CTR_TEXT) == 0 )             pControl = new CTextUI;
                 else if( _tcsicmp(pstrClass, DUI_CTR_TREE) == 0 )             pControl = new CTreeViewUI;
 				else if( _tcsicmp(pstrClass, DUI_CTR_HBOX) == 0 )             pControl = new CHorizontalLayoutUI;

@@ -678,7 +678,7 @@ const char * const z_errmsg[10] = { // indexed by 2-zlib_error
 #undef Tracec
 #undef Tracecv
 
-#ifdef DEBUG
+#ifdef _DEBUG
 
 	int z_verbose = 0;
 	void z_error (char *m) {fprintf(stderr, "%s\n", m); exit(1);}
